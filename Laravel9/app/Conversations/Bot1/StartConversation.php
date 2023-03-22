@@ -17,6 +17,12 @@ class StartConversation extends Conversation
     public $para;
     public $id_user;
 
+    public function run()
+    {
+        $this->askMenuStart();
+        // $this->cariLagi();
+    }
+
     public function askMenuStart()
     {
         $question = Question::create('Silahkan Pilih Menu Di Bawah!!')
@@ -33,12 +39,5 @@ class StartConversation extends Conversation
             // Detect if button was clicked:
         });
     }
-    /**
-     * Start the conversation
-     */
-    public function run()
-    {
-        $this->askMenuStart();
-        // $this->cariLagi();
-    }
+
 }

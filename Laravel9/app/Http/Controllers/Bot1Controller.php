@@ -53,7 +53,7 @@ class Bot1Controller extends Controller
         ];
         $botman = BotManFactory::create($config, new LaravelCache());
 
-        $botman->hears('/start|start|mulai|/menu', function (BotMan $bot) {
+        $botman->hears('/start|mulai|/menu', function (BotMan $bot) {
             $bot->startConversation(new Bot1StartConversation());
         })->stopsConversation();
 
@@ -135,18 +135,6 @@ class Bot1Controller extends Controller
         $botman->hears('/edit_alamat', function (BotMan $bot) {
             $bot->startConversation(new EditAlamatConversation);
         })->stopsConversation();
-
-        $botman->receivesImages(function($bot, $images) {
-            foreach ($images as $image) {
-
-                $url = $image->getUrl(); // The direct url
-                $title = $image->getTitle(); // The title, if available
-                $payload = $image->getPayload(); // The original payload
-            }
-            $bot->reply('Judul Gambar' .$title);
-        });
-
-        $botman->listen();
 
         $botman->fallback(function (BotMan $bot) {
             $message = $bot->getMessage()->getText();
