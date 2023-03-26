@@ -104,7 +104,7 @@
       <td>&nbsp;</td>
       <td>Alamat</td>
       <td>: </td>
-      <td style="text-align: justify">{{ $skp->alamat_skr }}</td>
+      <td style="text-align: justify">{{ $skp->alamat_ktp }}</td>
     </tr>
     <tr style="vertical-align: top;">
       <td>&nbsp;</td>

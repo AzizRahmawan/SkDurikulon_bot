@@ -114,7 +114,7 @@ class SkpBaruConversation extends Conversation
                 'status' => $p->status,
                 'pendidikan' => $p->pendidikan,
                 'no_kk' => $p->no_kk,
-                'alamat_skr' => $p->alamat_skr,
+                'alamat_ktp' => $p->alamat_ktp,
                 //'id_user' => '1',
                 'id_user' => $this->bot->getUser()->getId(),
                 'id_user2' => $this->bot->getUser()->getId(),
@@ -140,9 +140,9 @@ class SkpBaruConversation extends Conversation
             $message .= "Agama  : " . $skp->agama . PHP_EOL;
             $message .= "Status : " . $skp->status . PHP_EOL;
             $message .= "Pendidikan: " . $skp->pendidikan . PHP_EOL;
-            $message .= "Alamat : " . $skp->alamat_skr . PHP_EOL;
+            $message .= "Alamat : " . $skp->alamat_ktp . PHP_EOL;
             $this->bot->reply($message);
-            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://skdurikulon.000webhostapp.com/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
+            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://574e-103-160-182-11.ap.ngrok.io/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
         }
     }
 

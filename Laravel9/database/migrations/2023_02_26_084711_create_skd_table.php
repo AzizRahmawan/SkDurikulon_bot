@@ -23,8 +23,8 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('agama')->nullable();
             $table->bigInteger('no_kk')->nullable();
-            $table->text('alamat_skr')->nullable();
             $table->text('alamat_ktp')->nullable();
+            $table->text('alamat_skr')->nullable();
             $table->integer('id_user')->nullable();
             $table->integer('id_user2')->nullable();
             $table->timestamps();

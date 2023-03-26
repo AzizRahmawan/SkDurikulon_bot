@@ -88,7 +88,7 @@
       <td>&nbsp;</td>
       <td>Alamat</td>
       <td>:</td>
-      <td> {{ $sktm->alamat_skr }} </td>
+      <td> {{ $sktm->alamat_ktp }} </td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: justify">Orang tersebut di atas adalah penduduk Desa Durikulon dari  Keluarga  Tidak Mampu. Surat  keterangan  ini  di  berikan kepada orang tersebut diatas untuk {{ $sktm->keperluan }}.</td>

@@ -30,7 +30,8 @@ class StartConversation extends Conversation
             ->callbackId('ask_reason')
             ->addButtons([
                 Button::create('Buat Surat')->value('/buat_surat'),
-                //Button::create('Data Surat')->value('/data_surat'),
+                Button::create('Cek NIK')->value('/cek_nik'),
+                Button::create('Edit Data Penduduk')->value('/edit_data'),
                 Button::create('Tutorial')->value('/tutorial'),
                 Button::create('Tentang')->value('/tentang'),
             ]);

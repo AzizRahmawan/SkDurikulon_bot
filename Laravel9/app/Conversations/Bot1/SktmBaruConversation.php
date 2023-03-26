@@ -112,7 +112,7 @@ class SktmBaruConversation extends Conversation
                 'jk' => $p->jk,
                 'nama_kepala' => $p->nama_kepala,
                 'nik_kepala' => $p->nik_kepala,
-                'alamat_skr' => $p->alamat_skr,
+                'alamat_ktp' => $p->alamat_ktp,
                 //'id_user' => 1,
                 'id_user' => $this->bot->getUser()->getId(),
                 'id_user2' => $this->bot->getUser()->getId(),
@@ -129,7 +129,7 @@ class SktmBaruConversation extends Conversation
             $message .= "Status : " . $p->status . PHP_EOL;
             $message .= "Pendidikan Terakhir : " . $p->pendidikan . PHP_EOL;
             $message .= "No Kartu Keluarga : " . $p->no_kk . PHP_EOL;
-            $message .= "Alamat      : " . $p->alamat_skr . PHP_EOL;
+            $message .= "Alamat      : " . $p->alamat_ktp . PHP_EOL;
         }
         $this->bot->reply($message);
     }
@@ -178,10 +178,10 @@ class SktmBaruConversation extends Conversation
             $message .= "Jenis Kelamin : " . $sktm->jk . PHP_EOL;
             $message .= "Nama Kepala Keluarga : " . $sktm->nama_kepala . PHP_EOL;
             $message .= "NIK Kepala Keluarga  : " . $sktm->nik_kepala . PHP_EOL;
-            $message .= "Alamat : " . $sktm->alamat_skr . PHP_EOL;
+            $message .= "Alamat : " . $sktm->alamat_ktp . PHP_EOL;
             $message .= "Surat keterangan ini di berikan kepada orang tersebut untuk " . $sktm->keperluan . PHP_EOL;
             $this->bot->reply($message);
-            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://skdurikulon.000webhostapp.com/sktm/" . $sktm->id_sktm . "/" . $sktm->id_user2 . "/" . $sktm->nik);
+            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://574e-103-160-182-11.ap.ngrok.io/sktm/" . $sktm->id_sktm . "/" . $sktm->id_user2 . "/" . $sktm->nik);
         }
     }
 }

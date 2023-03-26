@@ -88,8 +88,8 @@ class SkdBaruConversation extends Conversation
                 return;
             } else {
                 if(Penduduk::where('nik',$answer->getText ())->exists() ){
-                    //DB::table('skd')->where('id_user', $this->bot->getUser()->getId())->update(['id_user' => null]);
-                    DB::table('skd')->where('id_user', 1)->update(['id_user' => null]);
+                    DB::table('skd')->where('id_user', $this->bot->getUser()->getId())->update(['id_user' => null]);
+                    //DB::table('skd')->where('id_user', 1)->update(['id_user' => null]);
                     $this->para = $answer->getText();
                     $this->insertNikSkdBaru();
                     $this->bot->reply("Masukkan Keterangan Alamat Sekarang!!");
@@ -115,10 +115,8 @@ class SkdBaruConversation extends Conversation
                 'no_kk' => $p->no_kk,
                 //'alamat_skr' => $p->alamat_skr,
                 'alamat_ktp' => $p->alamat_ktp,
-                'id_user' => '1',
-                'id_user2' => '1',
-                //'id_user' => $this->bot->getUser()->getId(),
-                //'id_user2' => $this->bot->getUser()->getId(),
+                'id_user' => $this->bot->getUser()->getId(),
+                'id_user2' => $this->bot->getUser()->getId(),
                 "created_at"=> Carbon::now(),
                 "updated_at"=> Carbon::now(),
             ]);
@@ -160,8 +158,8 @@ class SkdBaruConversation extends Conversation
         });
     }
     private function insertKeteranganSkdBaru() {
-        //DB::table('skd')->where('id_user',$this->bot->getUser()->getId())->update([
-        DB::table('skd')->where('id_user',1)->update([
+        DB::table('skd')->where('id_user',$this->bot->getUser()->getId())->update([
+        //DB::table('skd')->where('id_user',1)->update([
             'alamat_skr' => $this->para,
         ]);
         return true;
@@ -170,8 +168,8 @@ class SkdBaruConversation extends Conversation
     private function cetakSkdBaru()
     {
         //$user = $this->bot->getUser();
-        //$dataSkd = Skd::where('id_user',$this->bot->getUser()->getId())->get();
-        $dataSkd = Skd::where('id_user',1)->get();
+        $dataSkd = Skd::where('id_user',$this->bot->getUser()->getId())->get();
+        //$dataSkd = Skd::where('id_user',1)->get();
         $message = '';
         foreach($dataSkd as $skd){
             $message .= "Berikut Data Surat Keterangan Domisili Milik Anda :" . PHP_EOL;
@@ -187,7 +185,7 @@ class SkdBaruConversation extends Conversation
             $message .= "Keterangan : Orang tersebut di atas pada saat ini benar–benar Berdomisili / Bertempat Tinggal di " . $skd->alamat_skr . PHP_EOL;
             //$message .= "Alamat Sekarang : " . $skd->alamat_skr . PHP_EOL;
             $this->bot->reply($message);
-            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://skdurikulon.000webhostapp.com/skd/" . $skd->id_skd . "/" . $skd->id_user2 . "/" . $skd->nik);
+            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://574e-103-160-182-11.ap.ngrok.io/skd/" . $skd->id_skd . "/" . $skd->id_user2 . "/" . $skd->nik);
         }
     }
 

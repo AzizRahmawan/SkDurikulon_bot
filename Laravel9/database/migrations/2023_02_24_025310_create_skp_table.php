@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('agama')->nullable();
             $table->string('pendidikan')->nullable();
             $table->bigInteger('no_kk')->nullable();
-            $table->text('alamat_skr')->nullable();
+            $table->text('alamat_ktp')->nullable();
             $table->integer('id_user')->nullable();
             $table->integer('id_user2')->nullable();
             $table->timestamps();
