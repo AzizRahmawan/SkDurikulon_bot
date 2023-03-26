@@ -53,9 +53,8 @@ Route::get('/sktm/{id_sktm}/{id_user2}/{nik}','App\Http\Controllers\SuratControl
 Route::get('/skp/{id_skp}/{id_user2}/{nik}','App\Http\Controllers\SkpController@view');
 Route::get('/skd/{id_skd}/{id_user}/{nik}','App\Http\Controllers\SkdController@view');
 Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\Bot1Controller@handle');
-//Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\Bot2Controller@handle');
+Route::match(['get', 'post'], '/bot1', 'App\Http\Controllers\Bot2Controller@handle');
 //Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotmanController@handle');
-//Route::match(['get', 'post'], '/botman', 'App\Http\Controllers\BotmanController@sendMessageToTelegram');
 Route::get('dropdown', 'App\Http\Controllers\DropdownController@index');
 Route::get('/pegawai','App\Http\Controllers\DropdownController@index');
 Route::get('/pegawai/cari','App\Http\Controllers\DropdownController@cari');
