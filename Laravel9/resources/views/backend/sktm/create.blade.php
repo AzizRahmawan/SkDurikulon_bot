@@ -162,7 +162,7 @@
                     <input type="text" class="form-control" name="nik_kk" required>
                 </div>
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
+                    <label for="alamat">Alamat pada KTP</label>
                     <textarea name="alamat" rows="5" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
@@ -197,7 +197,7 @@
                         <input type="text" class="form-control" name="nik_kk" required value="{{$p->nik_kepala}}">
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Alamat</label>
+                        <label for="alamat">Alamat pada KTP</label>
                         <textarea name="alamat" rows="5" class="form-control" required>{{$p->alamat_skr}}</textarea>
                     </div>
                     <div class="form-group">

@@ -19,7 +19,7 @@ class BuatSuratConversation extends Conversation
 
     public function askMenuSurat()
     {
-        $question = Question::create('Silahkan Pilih Jenis Surat Di Bawah!!')
+        $question = Question::create('Silahkan Pilih Jenis Surat Di Bawah.')
             ->fallback('Maaf Perintah Tidak Ada')
             ->callbackId('ask_reason')
             ->addButtons([

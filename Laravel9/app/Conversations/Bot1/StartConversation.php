@@ -19,20 +19,24 @@ class StartConversation extends Conversation
 
     public function run()
     {
+        $this->say('Selamat Datang di Sistem Pelayanan Surat Keterangan Durikulon Berbasis Bot.');
+        $this->say('Setelah Mencoba Sistem/Bot Saya Mohon Bantuannya Untuk Mengisi Kuesinor Berikut:');
+        $this->say('https://docs.google.com/forms/d/e/1FAIpQLSfK1QQEWZwAq8HInlYtZLX2iXge_WsHYrv5rhwvMoCx2Ru1uw/viewform?usp=sf_link');
+        $this->say('Silahkan Pilih Menu Tutorial untuk melihat cara menggunakan Bot.');
         $this->askMenuStart();
         // $this->cariLagi();
     }
 
     public function askMenuStart()
     {
-        $question = Question::create('Silahkan Pilih Menu Di Bawah!!')
+        $question = Question::create('Silahkan Pilih Menu Di Bawah.')
             ->fallback('Maaf Perintah Tidak Ada')
             ->callbackId('ask_reason')
             ->addButtons([
+                Button::create('Tutorial')->value('/tutorial'),
                 Button::create('Buat Surat')->value('/buat_surat'),
                 Button::create('Cek NIK')->value('/cek_nik'),
                 Button::create('Edit Data Penduduk')->value('/edit_data'),
-                Button::create('Tutorial')->value('/tutorial'),
                 Button::create('Tentang')->value('/tentang'),
             ]);
 

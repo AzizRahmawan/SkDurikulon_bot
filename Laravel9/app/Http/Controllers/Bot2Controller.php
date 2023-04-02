@@ -48,15 +48,12 @@ class Bot2Controller extends Controller
         })->stopsConversation();
 
         $botman->hears('/sktm', function (BotMan $bot) {
-            $user = $bot->getUser();
             $bot->startConversation(new Bot2SktmConversation);
         })->stopsConversation();
         $botman->hears('/skp', function (BotMan $bot) {
-            $user = $bot->getUser();
             $bot->startConversation(new Bot2SkpConversation);
         })->stopsConversation();
         $botman->hears('/skd', function (BotMan $bot) {
-            $user = $bot->getUser();
             $bot->startConversation(new Bot2SkdConversation);
         })->stopsConversation();
 

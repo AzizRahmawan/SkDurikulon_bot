@@ -144,7 +144,7 @@
                     <input type="text" class="form-control" name="nik_kk" required value="{{ isset($sktm) ? $sktm->nik_kepala : '' }}">
                 </div>
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
+                    <label for="alamat">Alamat pada KTP</label>
                     <textarea name="alamat" rows="5" class="form-control" required>{{ isset($sktm) ? $sktm->alamat_skr : '' }}</textarea>
                 </div>
                 <div class="form-group">

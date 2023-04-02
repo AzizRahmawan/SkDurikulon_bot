@@ -59,7 +59,7 @@ class DataSkdConversation extends Conversation
                     //$message .= "Alamat Sekarang : " . $skd->alamat_skr . PHP_EOL;
                     $message .= "Tanggal Dibuat :" . Carbon::parse($skd->created_at)->isoFormat('dddd D MMMM Y') . PHP_EOL;
                     $this->say($message);
-                    $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://skdurikulon.000webhostapp.com/skd/" . $skd->id_skd . "/" . $skd->id_user2 . "/" . $skd->nik);
+                    $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/skd/" . $skd->id_skd . "/" . $skd->id_user2 . "/" . $skd->nik);
                 } else {
                     $this->say('Data tidak ditemukan, silakan pilih data yang tersedia.');
                 }

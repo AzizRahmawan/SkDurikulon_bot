@@ -400,7 +400,7 @@ class SkpConversation extends Conversation
             //$message .= "665e-103-163-36-11.ap.ngrok.io/skp/" . $skp->id_user . "/" . $skp->nik . PHP_EOL;
             //$message .= "127.0.0.1:8000/skp/" . $skp->id_user . "/" . $skp->nik . PHP_EOL;
             $this->bot->reply($message);
-            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."http://localhost:8000/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
+            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
         }
     }
 

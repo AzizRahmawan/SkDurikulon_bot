@@ -58,7 +58,7 @@ class DataSkpConversation extends Conversation
                     $message .= "Alamat : " . $skp->alamat_skr . PHP_EOL;
                     $message .= "Tanggal Dibuat :" . Carbon::parse($skp->created_at)->isoFormat('dddd D MMMM Y') . PHP_EOL;
                     $this->say($message);
-                    $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://skdurikulon.000webhostapp.com/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
+                    $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
                 } else {
                     $this->say('Data tidak ditemukan, silakan pilih data yang tersedia.');
                 }

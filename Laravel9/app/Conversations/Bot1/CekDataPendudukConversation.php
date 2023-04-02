@@ -27,45 +27,12 @@ class CekDataPendudukConversation extends Conversation
 
     public function run()
     {
-        $this->statusAcc();
+        $this->askNikDataPendudukBaru();
         // $this->cariLagi();
     }
-    public function askKonfirmasi(){
-        //if(DB::table('req_edit_penduduk')->where('id_user', 1)->where('status_acc', 'disetujui')->exists() ){
-        if(DB::table('req_edit_penduduk')->where('id_user', $this->bot->getUser()->getId())->where('status_acc', 'disetujui')->exists() ){
-            $this->bot->reply('Permintaaan Edit Data Sebelumnya Telah Disetujui!!');
-            DB::table('req_edit_penduduk')->where('id_user', $this->bot->getUser()->getId())->where('status_acc', 'disetujui')->delete();
-            //DB::table('req_edit_penduduk')->where('id_user', 1)->where('status_acc', 'disetujui')->delete();
-            $this->askNikDataPendudukBaru();
-        //} elseif(DB::table('req_edit_penduduk')->where('id_user', 1)->where('status_acc', 'ditolak')->exists() ) {
-        } elseif(DB::table('req_edit_penduduk')->where('id_user', $this->bot->getUser()->getId())->where('status_acc', 'ditolak')->exists() ){
-            $this->bot->reply('Permintaaan Edit Data Sebelumnya Ditolak!!');
-            //DB::table('req_edit_penduduk')->where('id_user', 1)->where('status_acc', 'ditolak')->delete();
-            DB::table('req_edit_penduduk')->where('id_user', $this->bot->getUser()->getId())->where('status_acc', 'ditolak')->delete();
-            $this->askNikDataPendudukBaru();
-        } else {
-            $this->askNikDataPendudukBaru();
-        }
-    }
-    public function statusAcc(){
-        //if(DB::table('edit_nama_penduduk')->where('id_user', $this->bot->getUser()->getId())->where('status_acc', 'disetujui')->exists() ){
-        if(DB::table('edit_nama_penduduk')->where('id_user2', 1)->where('status_acc', 'disetujui')->exists() ){
-            $this->bot->reply('Permintaaan Edit Data Sebelumnya Telah Disetujui!!');
-            //DB::table('req_edit_penduduk')->where('id_user', $this->bot->getUser()->getId())->where('status_acc', 'disetujui')->delete();
-            DB::table('edit_nama_penduduk')->where('id_user2', 1)->where('status_acc', 'disetujui')->delete();
-            $this->askNikDataPendudukBaru();
-        //} elseif(DB::table('req_edit_penduduk')->where('id_user', 1)->where('status_acc', 'ditolak')->exists() ) {
-        } elseif(DB::table('edit_nama_penduduk')->where('id_user2', 1)->where('status_acc', 'ditolak')->exists() ){
-            $this->bot->reply('Permintaaan Edit Data Sebelumnya Ditolak!!');
-            DB::table('edit_nama_penduduk')->where('id_user2', 1)->where('status_acc', 'ditolak')->delete();
-            //DB::table('edit_nama_penduduk')->where('id_user2', $this->bot->getUser()->getId())->where('status_acc', 'ditolak')->delete();
-            $this->askNikDataPendudukBaru();
-        } else {
-            $this->askNikDataPendudukBaru();
-        }
-    }
+
     public function askNikDataPendudukBaru(){
-        $question = BotManQuestion::create("Masukkan Nik Anda?");
+        $question = BotManQuestion::create("Masukkan Nik Anda.");
         $this->ask($question, function(Answer $answer){
             $validator = Validator::make(['answer' => $answer], [
                 'answer' => 'required|integer|max:16'
@@ -102,7 +69,6 @@ class CekDataPendudukConversation extends Conversation
             $message .= "Nama Kepala Keluarga : " . $p->nama_kepala . PHP_EOL;
             $message .= "NIK Kepala Keluarga     : " . $p->nik_kepala . PHP_EOL;
             $message .= "Alamat pada KTP     : " . $p->alamat_ktp . PHP_EOL;
-            $message .= "Alamat Sekarang     : " . $p->alamat_skr . PHP_EOL;
         }
         $this->bot->reply($message);
     }

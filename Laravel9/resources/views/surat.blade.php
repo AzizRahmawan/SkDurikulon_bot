@@ -15,7 +15,7 @@
 @foreach($data_sktm as $sktm)
 <table width="80%" border="0" align="center" cellspacing="0" cellpadding="2">
 	<tr>
-    <td rowspan="5" width="15%" align="center"><img src="{{ asset('image/logo durikulon.jpg') }}" width="100px"/></td>
+    <td rowspan="5" width="15%" align="center"><img src="{{ asset('Image/logo durikulon.jpg') }}" width="100px"/></td>
     <td align="center" style="font-size:18px"><strong>PEMERINTAH KABUPATEN LAMONGAN</strong></td>
   </tr>
 	<tr>
@@ -86,7 +86,7 @@
     </tr>
     <tr style="vertical-align: top;">
       <td>&nbsp;</td>
-      <td>Alamat</td>
+      <td>Alamat pada KTP</td>
       <td>:</td>
       <td> {{ $sktm->alamat_ktp }} </td>
     </tr>

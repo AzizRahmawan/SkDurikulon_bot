@@ -68,7 +68,7 @@ class SkpBaruConversation extends Conversation
     public function listNik(){
         $nik_penduduk = Penduduk::all();
         $message = '';
-        $this->bot->reply('Silahkan Masukkan Salah Satu Nik Dibawah Ini!!!');
+        $this->bot->reply('Berikut NIK yang Disediakan:');
         foreach ($nik_penduduk as $nik_p){
             $message .= "NIK   : " . $nik_p->nik . PHP_EOL;
         }
@@ -91,12 +91,54 @@ class SkpBaruConversation extends Conversation
                     DB::table('skp')->where('id_user', $this->bot->getUser()->getId())->update(['id_user' => null]);
                     //DB::table('skp')->where('id_user', 1)->update(['id_user' => null]);
                     $this->para = $answer->getText();
-                    $this->insertNikSkpBaru();
-                    $this->bot->reply("Surat Berhasil Dibuat!!");
-                    $this->cetakSkpBaru();
+                    $dataPenduduk = Penduduk::where('nik',$this->para)->get();
+                    $message = '';
+                    foreach($dataPenduduk as $p){
+                        $message .= "Berikut Data Anda :" . PHP_EOL;
+                        $message .= "Nama  : " . $p->nama . PHP_EOL;
+                        $message .= "NIK   : " . $p->nik . PHP_EOL;
+                        $message .= "Tempat Tanggal Lahir : " . $p->tmpt_tgl_lahir . PHP_EOL;
+                        $message .= "Jenis Kelamin : " . $p->jk . PHP_EOL;
+                        $message .= "Agama : " . $p->agama . PHP_EOL;
+                        $message .= "Pekerjaan : " . $p->pekerjaan . PHP_EOL;
+                        $message .= "Status : " . $p->status . PHP_EOL;
+                        $message .= "Pendidikan Terakhir : " . $p->pendidikan . PHP_EOL;
+                        $message .= "No Kartu Keluarga : " . $p->no_kk . PHP_EOL;
+                        $message .= "Alamat pada KTP: " . $p->alamat_ktp . PHP_EOL;
+                        $this->bot->reply($message);
+                    }
+                    $this->askYa();
                 } else {
                     $this->bot->reply("Maaf NIK Anda Tidak Ada Silahkan Hubungi Admin!!");
                 }
+            }
+        });
+    }
+    private function askYa(){
+        $question = Question::create('Apakah Data Anda Benar?')
+        ->fallback('Maaf Perintah Tidak Ada')
+        ->callbackId('ask_reason')
+        ->addButtons([
+            Button::create('Iya')->value('lanjut_skp_ya'),
+            Button::create('Tidak')->value('lanjut_skp_tidak'),
+        ]);
+        return $this->ask($question, function (Answer $answer) {
+            if ($answer->isInteractiveMessageReply()) {
+                switch ($answer->getValue()) {
+                    case 'lanjut_skp_ya':
+                        $this->insertNikSkpBaru();
+                        $this->bot->reply("Surat Berhasil Dibuat!!");
+                        $this->cetakSkpBaru();
+                        break;
+                    case 'lanjut_skp_tidak':
+                        $this->say('Silahkan Mengajukan Perubahan Data dengan Perintah /edit_data');
+
+                        break;
+                    default:
+
+                    break;
+                }
+
             }
         });
     }
@@ -140,9 +182,9 @@ class SkpBaruConversation extends Conversation
             $message .= "Agama  : " . $skp->agama . PHP_EOL;
             $message .= "Status : " . $skp->status . PHP_EOL;
             $message .= "Pendidikan: " . $skp->pendidikan . PHP_EOL;
-            $message .= "Alamat : " . $skp->alamat_ktp . PHP_EOL;
+            $message .= "Alamat pada KTP : " . $skp->alamat_ktp . PHP_EOL;
             $this->bot->reply($message);
-            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://574e-103-160-182-11.ap.ngrok.io/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
+            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
         }
     }
 

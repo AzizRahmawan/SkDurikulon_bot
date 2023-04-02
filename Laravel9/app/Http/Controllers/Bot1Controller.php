@@ -24,10 +24,12 @@ use App\Conversations\Bot1\Edit\EditPendidikanConversation;
 use App\Conversations\Bot1\Edit\EditStatusConversation;
 use App\Conversations\Bot1\Edit\EditTglLahirConversation;
 use App\Models\imageModel;
+use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\Cache\LaravelCache;
 use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Drivers\DriverManager;
+use BotMan\BotMan\Messages\Attachments\Video;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\Question;
@@ -96,45 +98,15 @@ class Bot1Controller extends Controller
             $bot->startConversation(new Bot1EditDataConversation);
         })->stopsConversation();
 
-        $botman->hears('/edit_nama', function (BotMan $bot) {
-            $bot->startConversation(new Bot1EditNamaConversation);
-        })->stopsConversation();
+        $botman->hears('/tutorial', function (BotMan $bot){
+            $attachment = 'https://www.youtube.com/watch?v=6c7-ebHCx7o';
+            $bot->reply($attachment);
+        });
 
-        $botman->hears('/edit_nik', function (BotMan $bot) {
-            $bot->startConversation(new Bot1EditNikConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_kepala', function (BotMan $bot) {
-            $bot->startConversation(new EditKepalaConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_no_kk', function (BotMan $bot) {
-            $bot->startConversation(new EditNoKkConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_tgl_lahir', function (BotMan $bot) {
-            $bot->startConversation(new EditTglLahirConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_pekerjaan', function (BotMan $bot) {
-            $bot->startConversation(new EditPekerjaanConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_status', function (BotMan $bot) {
-            $bot->startConversation(new EditStatusConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_agama', function (BotMan $bot) {
-            $bot->startConversation(new EditAgamaConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_pendidikan', function (BotMan $bot) {
-            $bot->startConversation(new EditPendidikanConversation);
-        })->stopsConversation();
-
-        $botman->hears('/edit_alamat', function (BotMan $bot) {
-            $bot->startConversation(new EditAlamatConversation);
-        })->stopsConversation();
+        $botman->hears('/tentang', function (BotMan $bot){
+            $attachment = 'https://www.youtube.com/watch?v=6c7-ebHCx7o';
+            $bot->reply($attachment);
+        });
 
         $botman->fallback(function (BotMan $bot) {
             $message = $bot->getMessage()->getText();

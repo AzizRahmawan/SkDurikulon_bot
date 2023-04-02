@@ -335,7 +335,7 @@ class SktmConversation extends Conversation
             //$message .= "665e-103-163-36-11.ap.ngrok.io/sktm/" . $sktm->id_user . "/" . $sktm->nik . PHP_EOL;
             //$message .= "127.0.0.1:8000/sktm/" . $sktm->id_user . "/" . $sktm->nik . PHP_EOL;
             $this->bot->reply($message);
-            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."http://localhost:8000/sktm/" . $sktm->id_sktm . "/" . $sktm->id_user2 . "/" . $sktm->nik);
+            $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/sktm/" . $sktm->id_sktm . "/" . $sktm->id_user2 . "/" . $sktm->nik);
         }
     }
 

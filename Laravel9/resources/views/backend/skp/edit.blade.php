@@ -156,8 +156,8 @@
                     <input type="text" class="form-control" name="pendidikan" required value="{{ isset($skp) ? $skp->pendidikan: '' }}">
                 </div>
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <textarea name="alamat" rows="5" class="form-control" required>{{ isset($skp) ? $skp->alamat_skr : '' }}</textarea>
+                    <label for="alamat">Alamat pada KTP</label>
+                    <textarea name="alamat" rows="5" class="form-control" required>{{ isset($skp) ? $skp->alamat_ktp : '' }}</textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

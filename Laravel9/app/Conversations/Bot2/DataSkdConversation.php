@@ -48,7 +48,7 @@ class DataSkdConversation extends Conversation
                 $message .= "Alamat pada KTP      : " . $skd->alamat_ktp . PHP_EOL;
                 $message .= "Alamat Saat Ini      : " . $skd->alamat_skr . PHP_EOL;
                 $this->bot->reply($message);
-                $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."http://localhost:8000/skd/" . $skd->id_skd . "/" . $skd->id_user2 . "/" . $skd->nik);
+                $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/skd/" . $skd->id_skd . "/" . $skd->id_user2 . "/" . $skd->nik);
             }
             $this->askMenuActionskd();
         }else{

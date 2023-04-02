@@ -46,7 +46,7 @@ class DataSktmConversation extends Conversation
                 $message .= "Surat ini Dipergunakan Untuk " . $sktm->keperluan . PHP_EOL;
                 $message .= "Tanggal Dibuat :" . Carbon::parse($sktm->created_at)->isoFormat('dddd D MMMM Y') . PHP_EOL;
                 $this->bot->reply($message);
-                $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."http://localhost:8000/sktm/" . $sktm->id_sktm . "/" . $sktm->id_user2 . "/" . $sktm->nik);
+                $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/sktm/" . $sktm->id_sktm . "/" . $sktm->id_user2 . "/" . $sktm->nik);
             }
             $this->askMenuActionSktm();
         }else{

@@ -47,7 +47,7 @@ class DataSkpConversation extends Conversation
                 $message .= "Pendidikan    : " . $skp->pendidikan . PHP_EOL;
                 $message .= "Alamat      : " . $skp->alamat_skr . PHP_EOL;
                 $this->bot->reply($message);
-                $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."http://localhost:8000/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
+                $this->say("Silahkan Klik Link Dibawah ini Untuk Mencetak Surat!!" . PHP_EOL ."https://www.skdurikulon.myhost.id/skp/" . $skp->id_skp . "/" . $skp->id_user2 . "/" . $skp->nik);
             }
             $this->askMenuActionSkp();
         }else{

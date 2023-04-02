@@ -174,7 +174,7 @@
                         <input type="text" class="form-control" name="pendidikan" required>
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Alamat</label>
+                        <label for="alamat">Alamat pada KTP</label>
                         <textarea name="alamat" rows="5" class="form-control" required></textarea>
                     </div>
                 @else
@@ -217,8 +217,8 @@
                         <input type="text" class="form-control" name="pendidikan" required value="{{$p->pendidikan}}">
                     </div>
                     <div class="form-group">
-                        <label for="alamat">Alamat</label>
-                        <textarea name="alamat" rows="5" class="form-control" required>{{$p->alamat_skr}}</textarea>
+                        <label for="alamat">Alamat pada KTP</label>
+                        <textarea name="alamat" rows="5" class="form-control" required>{{$p->alamat_ktp}}</textarea>
                     </div>
                 @endforeach
                 @endif
