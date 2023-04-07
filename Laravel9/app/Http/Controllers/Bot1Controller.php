@@ -23,6 +23,8 @@ use App\Conversations\Bot1\Edit\EditPekerjaanConversation;
 use App\Conversations\Bot1\Edit\EditPendidikanConversation;
 use App\Conversations\Bot1\Edit\EditStatusConversation;
 use App\Conversations\Bot1\Edit\EditTglLahirConversation;
+use App\Conversations\Bot1\TentangConversation;
+use App\Conversations\Bot1\TutorialConversation;
 use App\Models\imageModel;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use BotMan\BotMan\BotMan;
@@ -99,14 +101,12 @@ class Bot1Controller extends Controller
         })->stopsConversation();
 
         $botman->hears('/tutorial', function (BotMan $bot){
-            $attachment = 'https://www.youtube.com/watch?v=6c7-ebHCx7o';
-            $bot->reply($attachment);
-        });
+            $bot->startConversation(new TutorialConversation);
+        })->stopsConversation();
 
         $botman->hears('/tentang', function (BotMan $bot){
-            $attachment = 'https://www.youtube.com/watch?v=6c7-ebHCx7o';
-            $bot->reply($attachment);
-        });
+            $bot->startConversation(new TentangConversation);
+        })->stopsConversation();
 
         $botman->fallback(function (BotMan $bot) {
             $message = $bot->getMessage()->getText();

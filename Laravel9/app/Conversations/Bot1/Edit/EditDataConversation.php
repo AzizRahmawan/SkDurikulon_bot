@@ -28,6 +28,17 @@ class EditDataConversation extends Conversation
     public function run()
     {
         //$this->askKonfirmasi();
+        $this->listNik();
+    }
+    public function listNik(){
+
+        $nik_penduduk = Penduduk::all();
+        $message = '';
+        $this->bot->reply('Berikut NIK yang Disediakan:');
+        foreach ($nik_penduduk as $nik_p){
+            $message .= "NIK   : " . $nik_p->nik . PHP_EOL;
+        }
+        $this->bot->reply($message);
         $this->askNikPenduduk();
     }
     private function askNikPenduduk(){
