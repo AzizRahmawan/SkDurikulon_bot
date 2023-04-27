@@ -23,6 +23,7 @@ use App\Conversations\Bot1\Edit\EditPekerjaanConversation;
 use App\Conversations\Bot1\Edit\EditPendidikanConversation;
 use App\Conversations\Bot1\Edit\EditStatusConversation;
 use App\Conversations\Bot1\Edit\EditTglLahirConversation;
+use App\Conversations\Bot1\PenjelasanSuratConversation;
 use App\Conversations\Bot1\TentangConversation;
 use App\Conversations\Bot1\TutorialConversation;
 use App\Models\imageModel;
@@ -51,7 +52,7 @@ class Bot1Controller extends Controller
         $config = [
             // Your driver-specific configuration
             "telegram" => [
-               "token" => "5995297911:AAF_9Ot_ZUwTc3KGX-CLz0w2SUj4qjUH5TU"
+               "token" => "5415228468:AAFqFWDKM7AXhfbZIc0gHq5DG3JUhZem_Ew"
 
             ]
         ];
@@ -63,6 +64,10 @@ class Bot1Controller extends Controller
 
         $botman->hears('/buat_surat', function (BotMan $bot) {
             $bot->startConversation(new Bot1BuatSuratConversation());
+        })->stopsConversation();
+
+        $botman->hears('/penjelasan_surat', function (BotMan $bot) {
+            $bot->startConversation(new PenjelasanSuratConversation);
         })->stopsConversation();
 
         $botman->hears('/sktm', function (BotMan $bot) {

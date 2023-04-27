@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Conversations\Bot1\Edit;
+namespace App\Conversations\Bot1;
 
 use App\Models\Penduduk;
 use App\Models\EditPenduduk;
